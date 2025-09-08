@@ -52,8 +52,8 @@ h2 {
 
 section {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr 20px 1fr 1fr 20px 1fr 1fr;
+  grid-template-rows: repeat(7, 1fr);
 }
 
 article {
@@ -62,28 +62,39 @@ article {
   border-radius: 5px;
   box-shadow: 0px 5px 15px -5px var(--grey400);
   padding: 15px;
-  margin: 0 20px;
-  min-height: 200px;
+  justify-content: space-between;
+  aspect-ratio: 4 / 3;
+  min-height: 150px;
+}
+
+.blurb {
+  display: flex;
+  flex-direction: column;
+}
+
+article img {
+  width: 20%;
+  align-self: flex-end;
 }
 
 .sup {
   border-top: 5px solid var(--cyan);
-  grid-area: 2 / 1 / 3 / 2;
+  grid-area: 3 / 1 / 6 / 3;
 }
 
 .team {
   border-top: 5px solid var(--red);
-  grid-area: 1 / 2 / 2 / 3;
+  grid-area: 1 / 4 / 4 / 6;
 }
 
 .karma {
   border-top: 5px solid var(--orange);
-  grid-area: 3 / 2 / 4 / 3;
+  grid-area: 5 / 4 / 8 / 6;
 }
 
 .calc {
   border-top: 5px solid var(--blue);
-  grid-area: 2 / 3 / 3 / 4;
+  grid-area: 3 / 7 / 6 / 9;
 }
 
 footer { 
