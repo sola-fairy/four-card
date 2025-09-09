@@ -6,15 +6,14 @@
   --grey500: hsl(234, 12%, 34%);
   --grey400: hsl(212, 6%, 44%);
   --white: hsl(0, 0%, 100%);
-  --size-step--2: clamp(0.6944rem, 0.6916rem + 0.014vw, 0.7035rem);
-  --size-step--1: clamp(0.8333rem, 0.8009rem + 0.1622vw, 0.9377rem);
+  --size-step--2: clamp(0.6944rem, 0.6405rem + 0.2697vw, 0.8681rem);
+  --size-step--1: clamp(0.8333rem, 0.7686rem + 0.3236vw, 1.0417rem);
   --size-step-0: clamp(1rem, 0.9223rem + 0.3883vw, 1.25rem);
-  --size-step-1: clamp(1.2rem, 1.0551rem + 0.7243vw, 1.6663rem);
-  --size-step-2: clamp(1.44rem, 1.1973rem + 1.2134vw, 2.2211rem);
-  --size-step-3: clamp(1.728rem, 1.345rem + 1.9149vw, 2.9607rem);
-  --size-step-4: clamp(2.0736rem, 1.4917rem + 2.9096vw, 3.9467rem);
-  --size-step-5: clamp(2.4883rem, 1.6269rem + 4.3069vw, 5.2609rem);
-  --flow-space: 10rem;
+  --size-step-1: clamp(1.2rem, 1.1068rem + 0.466vw, 1.5rem);
+  --size-step-2: clamp(1.44rem, 1.3282rem + 0.5592vw, 1.8rem);
+  --size-step-3: clamp(1.728rem, 1.5938rem + 0.6711vw, 2.16rem);
+  --size-step-4: clamp(2.0736rem, 1.9125rem + 0.8053vw, 2.592rem);
+  --size-step-5: clamp(2.4883rem, 2.2951rem + 0.9663vw, 3.1104rem);
 }
 
 /* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1350,20,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
@@ -29,10 +28,8 @@ body {
   background: var(--white);
   color: var(--grey500);
   font-family: 'Poppins', sans-serif;
-  font-size: var(--size-step-1);
-  font-weight: 200;
   line-height: 1.4;
-  margin: 2rem 1rem;
+  margin: 5rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -47,13 +44,36 @@ header * {
   margin-bottom: 1rem;
 }
 
+main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90vw;
+  padding: calc(2vw + 1%);
+  margin-top: 3rem;
+}
+
+.col1, .col2, .col3 {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+}
+
+.col1 {
+  margin-right: 2rem;
+}
+
+.col3 {
+  margin-left: 2rem;
+}
+
 h1, h2, h3 {
   line-height: 1;
   max-width: 50ch;
 }
 
 h1 {
-  font-size: var(--size-step-5);
+  font-size: var(--size-step-4);
   font-weight: 200;
 }
 
@@ -69,30 +89,35 @@ h2 + p {
 }
 
 h3 {
-  font-size: var(--size-step-3);
-  font-weight: 400;
+  font-size: calc((90vw / 3) / 18);
+  font-weight: 600;
+  margin-bottom: .5rem;
 }
 
 h3 + p {
   max-width: 65ch;
+  font-size: calc((90vw / 3) / 22);
+  font-weight: 400;
 }
 
 article {
   box-shadow: 0px 5px 15px -5px var(--grey400);
   border-radius: 5px;
-  padding: 2rem;
+  padding: calc(1vw + 5%);
   display: flex;
   flex-direction: column;
-  margin: 3rem 0;
+  justify-content: space-evenly;
+  width: 100%;
+  height: calc((90vw / 3) * (2/3));
+}
+
+.top {
+  height: 50%;
 }
 
 article img {
   align-self: flex-end;
-  width: 5rem;
-}
-
-article :not(img) {
-  margin-bottom: 1rem;
+  height: 33%;
 }
 
 .sup {
@@ -101,10 +126,12 @@ article :not(img) {
 
 .team {
   border-top: 5px solid var(--red);
+  margin-bottom: 1rem;
 }
 
 .karma {
   border-top: 5px solid var(--orange);
+  margin-top: 1rem;
 }
 
 .calc {
@@ -121,4 +148,28 @@ footer a {
 
 footer a:hover {
   color: var(--blue);
+}
+
+@media (max-width: 800px) {
+  main {
+    flex-direction: column;
+  }
+
+  .col1, .col2, .col3 {
+    width: 95%;
+    margin: 0;
+  }
+
+  article {
+    height: calc(90vw * (2/3));
+    margin-bottom: 3rem !important;
+  }
+
+  h3 {
+    font-size: calc(90vw / 15);
+  }
+
+  h3 + p {
+    font-size: calc(90vw / 25);
+  }
 }
